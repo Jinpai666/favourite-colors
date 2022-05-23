@@ -23,9 +23,6 @@ type MyProps = {
         saturation: boolean,
     }
 }
-// type MyState ={
-//
-// }
 
 export default class FilterColors extends Component <MyProps> {
 
