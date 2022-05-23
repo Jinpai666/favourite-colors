@@ -1,3 +1,18 @@
 .addForm{
-  margin: 4rem;
+  margin: 4rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  &__label{
+  margin-bottom: 1rem;
+  }
+  &__input{
+    margin-bottom: 1rem;
+  }
+  &__errorMessage{
+    height: 2rem;
+  }
+  &__button{
+    width: 5rem;
+    align-self: center;
+  }
 }

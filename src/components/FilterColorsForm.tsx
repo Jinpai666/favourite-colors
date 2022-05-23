@@ -40,12 +40,10 @@ const predefinedColors = [
 
 export default class FilterColors extends Component <MyProps> {
 
-
     render() {
         return (
             <>
                 <form>
-                    <p onClick={()=> console.log(this.props.colors)}>klik</p>
                     <label htmlFor="filterColors">Choose color:</label>
                     <select name="filterColors" id="filterColors">
                         <option value="1">Filter 1</option>

@@ -3,14 +3,6 @@ import AddColorForm from "./components/AddColorForm";
 import FilterColorsForm from "./components/FilterColorsForm";
 import "./scss/main.scss";
 
-
-interface Colors {
-        code: string,
-        r: number,
-        g: number,
-        b: number,
-        saturation: number,
-}
 const App = () => {
 
     const colorsFromStorage =  localStorage.getItem('storedColors') && JSON.parse(localStorage.getItem('storedColors') || "");
@@ -44,7 +36,7 @@ const App = () => {
 
     return (
         <div className="main">
-            <AddColorForm />
+            <AddColorForm allColors={allColors} colorsFromStorage={colorsFromStorage} />
             <FilterColorsForm colors={allColors}/>
             {/*{<button onClick={()=>console.log(allColors)}></button>}*/}
 
