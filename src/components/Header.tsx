@@ -3,11 +3,10 @@ import React from "react";
 
 const Header = () => {
 
-
     return(
         <>
-            <h1 className={"header"}>COLOR PICKER</h1>
-            <p className={"header__text"}>Find and save your favourite colors!</p>
+            <h1 className={"header"}>FAVORITE COLORS</h1>
+            <p className={"header__text"}>Find and save your favorite colors!</p>
         </>
     )
 }
