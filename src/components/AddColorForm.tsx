@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {getSaturation, getRGB} from "../functions/convert/convertFunctions";
+import {getSaturation, getRGB} from "../functions/ConvertFunctions";
 
 interface Colors {
             code: string,
