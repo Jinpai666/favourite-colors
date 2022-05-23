@@ -53,11 +53,14 @@ const App = () => {
         saturation: saturationFilter,
     }
     useEffect(()=>{
-        const red = redFilter ? allColors.filter(color=>color.r > 127) : allColors
+        console.log('test')
+        const red = redFilter ? colorsToPrint.filter(color=>color.r > 127) : colorsToPrint
         const green = greenFilter ?  red.filter(color=>color.g > 127) : red;
         const blue = blueFilter ? green.filter(color=>color.b > 127) : green
         const saturation = saturationFilter ? blue.filter(color=>color.saturation > 50) : blue;
         setColorsToPrint(saturation)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[redFilter, greenFilter, blueFilter, saturationFilter])
     return (
         <div className="main">
