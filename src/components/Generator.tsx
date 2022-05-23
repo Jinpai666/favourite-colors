@@ -41,7 +41,6 @@ const Generator = ({allColors, predefinedColors, setColors, colors}:Props) => {
                         {!predefinedColors.map(color => color.code).includes(color.code)
                             ? <button className="generator__button-remove" value={color.code}
                                 onClick={(event) => handleClick(event, allColors, predefinedColors)}>remove
-                            from favorites
                         </button>
                             :<button disabled={true}>predefined color</button>}
                     </div>

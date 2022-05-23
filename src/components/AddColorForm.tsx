@@ -75,8 +75,8 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
         <>
             <form className="addForm" onSubmit={event => handleSubmit(event)}>
                 <label className="addForm__label" htmlFor="addColorForm">Please provide new color's hex code:</label>
-                <div>
-                    <span>#</span>
+                <div className={"addForm__inputContainer"}>
+                    <span className="addForm__hashtag">#</span>
                     <input
                         className="addForm__input"
                         name="addColorForm"
@@ -87,7 +87,7 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
                         value={inputValue.slice(1)}
                     />
                 </div>
-                <button className={"addForm__button"} type={"submit"}>Submit</button>
+                <button className={"addForm__button"} type={"submit"}>Add</button>
             </form>
             <p className={"addForm__errorMessage"}>{inputIsIncorrect? "Please provide correct hex format" : ""}{isInStorage && "Color already saved"}</p>
         </>

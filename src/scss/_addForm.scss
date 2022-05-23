@@ -1,18 +1,41 @@
+@import "mixins";
+
 .addForm{
   margin: 4rem 0 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  &__hashtag{
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
   &__label{
   margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  &__inputContainer{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
   }
   &__input{
-    margin-bottom: 1rem;
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #aaa;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
   }
   &__errorMessage{
     height: 2rem;
   }
   &__button{
-    width: 5rem;
-    align-self: center;
+   @include button;
+    width: 30%;
   }
 }

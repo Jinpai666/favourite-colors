@@ -3,9 +3,9 @@
 @import "addForm";
 @import "filterForm";
 @import "generator";
-
 body {
-  background-color: #3C3C3C
+  background-color: #3C3C3C;
+  background-image: url(../images/background.png);
 }
 .main{
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
