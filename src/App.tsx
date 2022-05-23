@@ -60,7 +60,6 @@ const App = () => {
                 colors={colorsToPrint}
             />
 
-            {/*{<button onClick={()=>console.log(allColors)}></button>}*/}
 
         </div>
     );
