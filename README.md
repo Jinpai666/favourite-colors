@@ -2,4 +2,4 @@
 Find and save favourite colors.
 
 ## Live
-favourite-colors.netlify.app
+www.favourite-colors.netlify.app
