@@ -6,7 +6,7 @@ import Generator from "./components/Generator";
 import Header from "./components/Header";
 
 const App = () => {
-
+//colors
     const colorsFromStorage =  localStorage.getItem('storedColors') && JSON.parse(localStorage.getItem('storedColors') || "");
     const predefinedColors = [
         {
@@ -34,14 +34,31 @@ const App = () => {
     const allColors = colorsFromStorage
         ? [...colorsFromStorage,...predefinedColors]
         : predefinedColors
-
     const [colorsToPrint,setColorsToPrint] = useState(allColors);
-
-    useEffect(() =>{
-        console.log('zmienilem sie')
-
-    }, [colorsToPrint])
-
+//filtering
+    const [redFilter, setRedFilter] = useState(false)
+    const [greenFilter, setGreenFilter] = useState(false)
+    const [blueFilter, setBlueFilter] = useState(false)
+    const [saturationFilter, setSaturationFilter] = useState(false)
+    const filterFunctions = {
+        red: setRedFilter,
+        green: setGreenFilter,
+        blue: setBlueFilter,
+        saturation: setSaturationFilter,
+    }
+    const filters = {
+        red: redFilter,
+        green: greenFilter,
+        blue: blueFilter,
+        saturation: saturationFilter,
+    }
+    useEffect(()=>{
+        const red = redFilter ? allColors.filter(color=>color.r > 127) : allColors
+        const green = greenFilter ?  red.filter(color=>color.g > 127) : red;
+        const blue = blueFilter ? green.filter(color=>color.b > 127) : green
+        const saturation = saturationFilter ? blue.filter(color=>color.saturation > 50) : blue;
+        setColorsToPrint(saturation)
+    },[redFilter, greenFilter, blueFilter, saturationFilter])
     return (
         <div className="main">
             <Header/>
@@ -50,17 +67,19 @@ const App = () => {
                 colorsFromStorage={colorsFromStorage}
                 setColors={setColorsToPrint}
                 predefinedColors={predefinedColors}
-
             />
-            <FilterColorsForm allColors={allColors} predefinedColors={predefinedColors} />
+            <FilterColorsForm
+                allColors={allColors}
+                predefinedColors={predefinedColors}
+                filterFunctions={filterFunctions}
+                filters={filters}
+            />
             <Generator
                 predefinedColors={predefinedColors}
                 allColors={allColors}
                 setColors={setColorsToPrint}
                 colors={colorsToPrint}
             />
-
-
         </div>
     );
 }

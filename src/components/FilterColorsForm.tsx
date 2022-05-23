@@ -10,6 +10,18 @@ interface Colors  {
 type MyProps = {
     allColors: Colors[],
     predefinedColors : Colors[]
+    filterFunctions: {
+        red:  React.Dispatch<React.SetStateAction<boolean>>,
+        green:  React.Dispatch<React.SetStateAction<boolean>>,
+        blue:  React.Dispatch<React.SetStateAction<boolean>>,
+        saturation:  React.Dispatch<React.SetStateAction<boolean>>,
+    }
+    filters:{
+        red: boolean,
+        green: boolean,
+        blue: boolean,
+        saturation: boolean,
+    }
 }
 // type MyState ={
 //
@@ -24,19 +36,39 @@ export default class FilterColors extends Component <MyProps> {
                 <form>
                     <div className={"filterForm__filter"}>
                         <label htmlFor="filter1">Red {'>'} 50%</label>
-                        <input onChange={()=>console.log('filtr1')} type="checkbox" id="filter1" name="filter1" value="filer1"/>
+                        <input
+                            onChange={()=>this.props.filterFunctions.red(!this.props.filters.red)}
+                            type="checkbox"
+                            id="redFilter"
+                            name="redFilter"
+                        />
                     </div>
                     <div className={"filterForm__filter"}>
                         <label htmlFor="filter2">Green {'>'} 50%</label>
-                        <input onChange={()=>console.log('filtr2')} type="checkbox" id="filter2" name="filter2" value="filer2"/>
+                        <input
+                            onChange={()=>this.props.filterFunctions.green(!this.props.filters.green)}
+                            type="checkbox"
+                            id="greenFilter"
+                            name="greenFilter"
+                        />
                     </div>
                     <div className={"filterForm__filter"}>
                         <label htmlFor="filter3">Blue {'>'} 50%</label>
-                        <input onChange={()=>console.log('filtr3')} type="checkbox" id="filter3" name="filter3" value="filer3"/>
+                        <input
+                            onChange={()=>this.props.filterFunctions.blue(!this.props.filters.blue)}
+                            type="checkbox"
+                            id="blueFilter"
+                            name="blueFilter"
+                        />
                     </div>
                     <div className={"filterForm__filter"}>
                         <label htmlFor="filter4">Saturation {'>'} 50%</label>
-                        <input onChange={()=>console.log('filtr4')} type="checkbox" id="filter4" name="filter4" value="filer4"/>
+                        <input
+                            onChange={()=>this.props.filterFunctions.saturation(!this.props.filters.saturation)}
+                            type="checkbox"
+                            id="saturationFilter"
+                            name="saturationFilter"
+                        />
                     </div>
                 </form>
             </>
