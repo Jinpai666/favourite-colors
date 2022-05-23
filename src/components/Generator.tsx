@@ -24,12 +24,16 @@ const Generator = ({allColors, predefinedColors, setColors, colors}:Props) => {
         const newColors = filtered.filter(color => !predefined.includes(color.code));
         localStorage.setItem('storedColors', JSON.stringify(newColors));
         setColors([...newColors,...predefinedColors]);
-
-        // console.log(newColors)
     }
+
     return(
         <div className={"generator"}>
-            {colors.map((color, idx) => (
+            {colors
+                //sort before printing
+                .sort((a,b) => a.b < b.b ? 1 : -1)
+                .sort((a,b) => a.g > b.g ? 1 : -1)
+                .sort((a,b) => a.r < b.r ? 1 : -1)
+                .map((color, idx) => (
                     //pamiętam, że w poleceniu jest zabronione stylowanie inline, ale w tym przypadku
                     // wydaje mi się jak sensowne rozwiązanie
                     // i jest to jedyny wyjątek

@@ -33,6 +33,9 @@
   }
   &__errorMessage{
     height: 2rem;
+    font-size: 1.2rem;
+    color: #f00;
+    padding: 1rem
   }
   &__button{
    @include button;

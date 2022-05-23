@@ -28,6 +28,8 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
         const correct = () => {
+            setIsInStorage(false);
+            setInputIsIncorrect(false);
             event.preventDefault();
             const colorToSave = {
                 code: inputValue.toUpperCase(),
@@ -41,8 +43,6 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
                 : [colorToSave]
             localStorage.setItem('storedColors', JSON.stringify(newColors));
             setColors([...newColors, ...predefinedColors]);
-            setIsInStorage(false);
-            setInputIsIncorrect(false);
             setInputValue("")
             console.log(event.currentTarget.children[1].children[1]);
             return;
