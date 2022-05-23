@@ -44,7 +44,6 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
             localStorage.setItem('storedColors', JSON.stringify(newColors));
             setColors([...newColors, ...predefinedColors]);
             setInputValue("")
-            console.log(event.currentTarget.children[1].children[1]);
             return;
         }
 

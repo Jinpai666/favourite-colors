@@ -53,7 +53,6 @@ const App = () => {
         saturation: saturationFilter,
     }
     useEffect(()=>{
-        console.log('test')
         const red = redFilter ? colorsToPrint.filter(color=>color.r > 127) : colorsToPrint
         const green = greenFilter ?  red.filter(color=>color.g > 127) : red;
         const blue = blueFilter ? green.filter(color=>color.b > 127) : green
