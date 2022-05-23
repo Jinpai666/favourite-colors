@@ -71,7 +71,7 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
     };
 
     return (
-        <>
+        <div>
             <form className="addForm" onSubmit={event => handleSubmit(event)}>
                 <label className="addForm__label" htmlFor="addColorForm">Please provide new color's hex code:</label>
                 <div className={"addForm__inputContainer"}>
@@ -89,7 +89,7 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
                 <button className={"addForm__button"} type={"submit"}>Add</button>
             </form>
             <p className={"addForm__errorMessage"}>{inputIsIncorrect? "Please provide correct hex format" : ""}{isInStorage && "Color already saved"}</p>
-        </>
+        </div>
     );
 }
 

@@ -28,7 +28,7 @@ export default class FilterColors extends Component <MyProps> {
 
     render() {
         return (
-            <>
+            <div>
                 <h2 className={"filterForm__header"}>Filters:</h2>
                 <form>
                     <div className={"filterForm__filter"}>
@@ -68,7 +68,7 @@ export default class FilterColors extends Component <MyProps> {
                         />
                     </div>
                 </form>
-            </>
+            </div>
         );
     }
 }
