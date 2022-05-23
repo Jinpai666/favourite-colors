@@ -3,6 +3,7 @@ import AddColorForm from "./components/AddColorForm";
 import FilterColorsForm from "./components/FilterColorsForm";
 import "./scss/main.scss";
 import Generator from "./components/Generator";
+import Header from "./components/Header";
 
 const App = () => {
 
@@ -43,6 +44,7 @@ const App = () => {
 
     return (
         <div className="main">
+            <Header/>
             <AddColorForm
                 allColors={allColors}
                 colorsFromStorage={colorsFromStorage}
