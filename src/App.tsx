@@ -1,6 +1,6 @@
 import React from 'react';
 import AddColorForm from "./components/AddColorForm";
-import FilterColorsForm from "./components/FilterColorsForm";
+import FilterColorsForm from "./components/filterForm/FilterColorsForm";
 import "./scss/main.scss";
 
 const App = () => {

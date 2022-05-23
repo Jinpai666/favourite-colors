@@ -14,29 +14,6 @@ type MyState ={
 
 }
 
-const predefinedColors = [
-    {
-        code: "#FF0000",
-        r: 255,
-        g: 0,
-        b: 0,
-        saturation: 100,
-    },
-    {
-        code: "#00FF00",
-        r: 0,
-        g: 255,
-        b:0,
-        saturation: 100,
-    },
-    {
-        code: "#0000FF",
-        r: 0,
-        g: 0,
-        b: 255,
-        saturation: 100,
-    },
-]
 
 export default class FilterColors extends Component <MyProps> {
 
@@ -69,7 +46,6 @@ export default class FilterColors extends Component <MyProps> {
                         )
                     )}
                 </div>
-
             </>
         );
     }
