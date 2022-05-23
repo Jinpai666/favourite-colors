@@ -44,6 +44,7 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
             setIsInStorage(false);
             setInputIsIncorrect(false);
             setInputValue("")
+            console.log(event.currentTarget.children[1].children[1]);
             return;
         }
 
@@ -83,6 +84,7 @@ const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:P
                         maxLength={6}
                         onChange={(event) => setInputValue("#" + event.target.value)}
                         pattern="[a-zA-Z0-9]+"
+                        value={inputValue.slice(1)}
                     />
                 </div>
                 <button className={"addForm__button"} type={"submit"}>Submit</button>

@@ -24,25 +24,24 @@ export default class FilterColors extends Component <MyProps> {
                 <form>
                     <div>
                         <label htmlFor="filter1">filter1</label>
-                        <input type="radio" id="filter1" name="filter1" value="filer1"/>
+                        <input onChange={()=>console.log('filtr1')} type="checkbox" id="filter1" name="filter1" value="filer1"/>
                     </div>
                     <div>
                         <label htmlFor="filter2">filter2</label>
-                        <input type="radio" id="filter2" name="filter2" value="filer2"/>
+                        <input onChange={()=>console.log('filtr2')} type="checkbox" id="filter2" name="filter2" value="filer2"/>
                     </div>
                     <div>
                         <label htmlFor="filter3">filter3</label>
-                        <input type="radio" id="filter3" name="filter3" value="filer3"/>
+                        <input onChange={()=>console.log('filtr3')} type="checkbox" id="filter3" name="filter3" value="filer3"/>
                     </div>
                     <div>
                         <label htmlFor="filter4">filter4</label>
-                        <input type="radio" id="filter4" name="filter4" value="filer4"/>
+                        <input onChange={()=>console.log('filtr4')} type="checkbox" id="filter4" name="filter4" value="filer4"/>
                     </div>
                     <div>
                         <label htmlFor="filter5">filter5</label>
-                        <input type="radio" id="filter5" name="filter5" value="filer5"/>
+                        <input onChange={()=>console.log('filtr5')} type="checkbox" id="filter5" name="filter5" value="filer5"/>
                     </div>
-                    <button onClick={()=>console.log('fil;truje')}>filter</button>
                 </form>
             </>
         );
