@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import AddColorForm from "./components/AddColorForm";
-import FilterColorsForm from "./components/filterForm/FilterColorsForm";
+import FilterColorsForm from "./components/FilterColorsForm";
 import "./scss/main.scss";
+import Generator from "./components/Generator";
 
 const App = () => {
 
     const colorsFromStorage =  localStorage.getItem('storedColors') && JSON.parse(localStorage.getItem('storedColors') || "");
-
     const predefinedColors = [
         {
             code: "#FF0000",
@@ -34,10 +34,30 @@ const App = () => {
         ? [...colorsFromStorage,...predefinedColors]
         : predefinedColors
 
+    const [colorsToPrint,setColorsToPrint] = useState(allColors);
+
+    useEffect(() =>{
+        console.log('zmienilem sie')
+
+    }, [colorsToPrint])
+
     return (
         <div className="main">
-            <AddColorForm allColors={allColors} colorsFromStorage={colorsFromStorage} />
-            <FilterColorsForm colors={allColors}/>
+            <AddColorForm
+                allColors={allColors}
+                colorsFromStorage={colorsFromStorage}
+                setColors={setColorsToPrint}
+                predefinedColors={predefinedColors}
+
+            />
+            <FilterColorsForm allColors={allColors} predefinedColors={predefinedColors} />
+            <Generator
+                predefinedColors={predefinedColors}
+                allColors={allColors}
+                setColors={setColorsToPrint}
+                colors={colorsToPrint}
+            />
+
             {/*{<button onClick={()=>console.log(allColors)}></button>}*/}
 
         </div>

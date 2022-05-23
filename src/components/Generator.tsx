@@ -1,0 +1,51 @@
+import React from "react";
+
+
+interface Colors {
+    code: string,
+    r: number,
+    g: number,
+    b: number,
+    saturation: number,
+}
+interface Props {
+    predefinedColors: Colors[]
+    allColors: Colors[]
+    setColors: React.Dispatch<React.SetStateAction<Colors[]>>
+    colors: Colors[]
+}
+
+const Generator = ({allColors, predefinedColors, setColors, colors}:Props) => {
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, colors: Colors[], alwaysFilterColors: Colors[]) => {
+        const colorToRemove = event.currentTarget.value;
+        const predefined = alwaysFilterColors.map(color => color.code);
+        const filtered = colors.filter(color => color.code !== colorToRemove);
+        const newColors = filtered.filter(color => !predefined.includes(color.code));
+        localStorage.setItem('storedColors', JSON.stringify(newColors));
+        setColors([...newColors,...predefinedColors]);
+
+        // console.log(newColors)
+    }
+    return(
+        <div className={"generator"}>
+            {colors.map((color, idx) => (
+                    //pamiętam, że w poleceniu jest zabronione stylowanie inline, ale w tym przypadku
+                    // wydaje mi się jak sensowne rozwiązanie
+                    // i jest to jedyny wyjątek
+                    <div className={"generator__colorContainer"} key={idx}>
+                        <div className="generator__color">
+                            <div className="generator__presentation" style={{backgroundColor: `${color.code}`}}/>
+                            <p>{color.code}</p>
+                        </div>
+                        <button className="generator__button-remove" value={color.code}
+                                onClick={(event) => handleClick(event, allColors, predefinedColors)}>remove
+                            from favorites
+                        </button>
+                    </div>
+                )
+            )}
+        </div>
+    )
+}
+export default Generator;

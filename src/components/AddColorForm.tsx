@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {getSaturation, getRGB} from "../functions/convert/convertFunctions";
 
-interface Color {
+interface Colors {
             code: string,
             r: number,
             g: number,
@@ -9,22 +9,26 @@ interface Color {
             saturation: number,
      }
 interface Props {
-    allColors: Color[]
-    colorsFromStorage: Color[]
+    allColors: Colors[]
+    colorsFromStorage: Colors[]
+    predefinedColors: Colors[]
+    setColors: React.Dispatch<React.SetStateAction<Colors[]>>
+
 }
 
 
-const AddColors = ({allColors, colorsFromStorage}:Props) => {
+const AddColors = ({allColors, colorsFromStorage, setColors, predefinedColors}:Props) => {
     const [inputValue, setInputValue] = useState('');
     const [inputIsIncorrect, setInputIsIncorrect] = useState(false);
     const [isInStorage, setIsInStorage] = useState(false);
     const hexRegExp = /^#([0-9a-f]{6}|[0-9a-f]{3})$/i
-    const codes = allColors.map((color:Color)=>color.code)
+    const codes = allColors.map((color:Colors)=>color.code)
 
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
         const correct = () => {
+            event.preventDefault();
             const colorToSave = {
                 code: inputValue.toUpperCase(),
                 r: Number(getRGB(inputValue)[0]),
@@ -36,6 +40,10 @@ const AddColors = ({allColors, colorsFromStorage}:Props) => {
                 ? [...colorsFromStorage, colorToSave]
                 : [colorToSave]
             localStorage.setItem('storedColors', JSON.stringify(newColors));
+            setColors([...newColors, ...predefinedColors]);
+            setIsInStorage(false);
+            setInputIsIncorrect(false);
+            setInputValue("")
             return;
         }
 
