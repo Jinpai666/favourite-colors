@@ -1,10 +1,37 @@
-.filterForm{
+.filterForm {
   &__header{
     font-size: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
   &__filter{
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     margin: .5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1160px){
+  .filterForm{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    //gap: 10rem;
+    &__header{
+      margin-bottom: 1rem;
+    }
+    &__filterList{
+      display: flex;
+      gap: 2rem;
+    }
+    &__filter{
+      margin: .5rem 0;
+    }
+    &__input{
+      transform: scale(1.5);
+      margin-left:1rem;
+    }
   }
 }

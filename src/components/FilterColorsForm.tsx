@@ -28,9 +28,9 @@ export default class FilterColors extends Component <MyProps> {
 
     render() {
         return (
-            <div>
+            <div className="filterForm">
                 <h2 className={"filterForm__header"}>Filters:</h2>
-                <form>
+                <form className="filterForm__filterList">
                     <div className={"filterForm__filter"}>
                         <label htmlFor="filter1">Red {'>'} 50%</label>
                         <input
@@ -38,6 +38,7 @@ export default class FilterColors extends Component <MyProps> {
                             type="checkbox"
                             id="redFilter"
                             name="redFilter"
+                            className={"filterForm__input"}
                         />
                     </div>
                     <div className={"filterForm__filter"}>
@@ -47,6 +48,7 @@ export default class FilterColors extends Component <MyProps> {
                             type="checkbox"
                             id="greenFilter"
                             name="greenFilter"
+                            className={"filterForm__input"}
                         />
                     </div>
                     <div className={"filterForm__filter"}>
@@ -56,6 +58,7 @@ export default class FilterColors extends Component <MyProps> {
                             type="checkbox"
                             id="blueFilter"
                             name="blueFilter"
+                            className={"filterForm__input"}
                         />
                     </div>
                     <div className={"filterForm__filter"}>
@@ -65,6 +68,7 @@ export default class FilterColors extends Component <MyProps> {
                             type="checkbox"
                             id="saturationFilter"
                             name="saturationFilter"
+                            className={"filterForm__input"}
                         />
                     </div>
                 </form>

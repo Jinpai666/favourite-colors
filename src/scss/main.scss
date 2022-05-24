@@ -9,9 +9,13 @@ body {
 }
 .main{
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #fff;
+}
+@media (max-width: 400px) {
+  .main{
+    padding: 1rem;
+  }
 }
